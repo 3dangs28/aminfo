@@ -1,7 +1,5 @@
 <?php include("inc/librerias.php"); ?>
 
-
-
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -21,16 +19,29 @@
 <div class="content">
 
 <?php include("inc/header.php"); ?>
-  
-          
-<?php include("clientes_ajax.php"); ?>
 
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h3 class="mb-0">Clientes</h3>
+                  	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#dataRegister"><i class='glyphicon glyphicon-plus'></i> Agregar</button>
+                    </div>
+                    <div class="table-responsive" id="loader"> </div> 
+                </div>
+            </div>
+            <!-- Recent Sales End -->
 
 <?php include("inc/footer.php"); ?>
 
     <!-- Template Javascript -->
 <script src="js/main.js"></script>
-
+<script src="js/clientes.js"></script>
+	<script>
+		$(document).ready(function(){
+			load(1);
+		});
+  </script>
 </body>
 
 </html>

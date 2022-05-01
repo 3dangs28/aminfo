@@ -1,5 +1,6 @@
 function load(page){
     var parametros = {"action":"ajax","page":page};
+
     $("#loader").fadeIn('slow');
     $.ajax({
         url:'clientes_ajax.php',
@@ -8,8 +9,12 @@ function load(page){
         $("#loader").html("<img src='giphy.gif'>");
         },
         success:function(data){
-            $(".outer_div").html(data).fadeIn('slow');
-            $("#loader").html("");
+          console.log(data);
+        //   $("#outer_div").html(data).fadeIn('slow');
+         //  $("#loader").html("");
+
+     $("#loader").html(data);
+
         }
     })
 }
