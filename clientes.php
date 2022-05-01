@@ -40,6 +40,9 @@
 	<script>
 		$(document).ready(function(){
 			load(1);
+           
+
+
 		});
   </script>
 </body>

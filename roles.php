@@ -12,9 +12,9 @@
 
 
 <?php include("inc/menu.php"); ?>
-<?php include("modalUsuario/modal_agregar.php");?>
-  <?php include("modalUsuario/modal_modificar.php");?>
-	<?php include("modalUsuario/modal_eliminar.php");?>
+<?php include("modalRol/modal_agregar.php");?>
+<?php include("modalRol/modal_modificar.php");?>
+<?php include("modalRol/modal_eliminar.php");?>
         <!-- Content Start -->
 <div class="content">
 
@@ -24,7 +24,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h3 class="mb-0">Usuarios</h3>
+                        <h3 class="mb-0">Roles</h3>
                   	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#dataRegister"><i class='glyphicon glyphicon-plus'></i> Agregar</button>
                     </div>
                     <div class="table-responsive" id="loader"> </div> 
@@ -36,7 +36,7 @@
 
     <!-- Template Javascript -->
 <script src="js/main.js"></script>
-<script src="js/usuarioApp.js"></script>
+<script src="js/roles.js"></script>
 	<script>
 		$(document).ready(function(){
 			load(1);           
