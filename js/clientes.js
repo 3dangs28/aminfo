@@ -26,17 +26,17 @@ $('#dataRegister').on('hidden.bs.modal', function () {
   $('#rol').val('');
 
 });
-
+   
 
     $('#dataUpdate').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget) // Botón que activó el modal
       var id = button.data('id') // Extraer la información de atributos de datos
-      var aplicacion = button.data('aplicacion') // Extraer la información de atributos de datos
+      var cliente = button.data('cliente') // Extraer la información de atributos de datos
 
       var modal = $(this)
-      modal.find('.modal-title').text('Modificar aplicación con nombre de: '+aplicacion)
+      modal.find('.modal-title').text('Modificar aplicación con nombre de: '+cliente)
       modal.find('.modal-body #id').val(id)
-      modal.find('.modal-body #aplicacion').val(aplicacion)
+      modal.find('.modal-body #aplicacion').val(cliente)
 
       $('.alert').hide();//Oculto alert
     })

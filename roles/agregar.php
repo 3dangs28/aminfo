@@ -16,12 +16,12 @@
 			!empty($_POST['aplicacion']) 
 
 		){
-
+ 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$aplicacion=$_POST["aplicacion"];
 		$rol=mysqli_real_escape_string($con,(strip_tags($_POST["rol"],ENT_QUOTES)));
 	
-		$sql="INSERT INTO ROLES (id_cliente, rol) VALUES ('".$aplicacion."','".$rol."')";
+		$sql="INSERT INTO ROLES (id_cliente, rol,fecha_creacion) VALUES ('".$aplicacion."','".$rol."',sysdate())";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Los datos han sido guardados satisfactoriamente.";

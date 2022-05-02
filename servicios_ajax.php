@@ -9,16 +9,13 @@ require_once("conn/conexion.php");
 	include 'pagination.php'; //incluir el archivo de paginación
 	
 		//Cuenta el número total de filas de la tabla*/
-		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM usuarios");
+		$count_query   = mysqli_query($con,"SELECT count(*) AS numrows FROM servicios");
 
 		if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 
 		$reload = 'index.php';
 		//consulta principal para recuperar los datos
-		$sql ='select t1.id_usuario, t1.id_cliente, t1.id_rol, t1.correo, t1.nombre, t1.apellido, 
-		t1.nick, t1.pass, t2.rol from usuarios as t1, roles as t2
-		   where 
-	   t1.id_rol = t2.id_rol order by id_usuario';
+		$sql ='select id_servicio, nombre, apellido,cedula, id_cliente, correo, direccion, descripcion from servicios';
    
 
         $query = mysqli_query($con,$sql);
@@ -36,8 +33,10 @@ require_once("conn/conexion.php");
                                  
                                     <td scope="col">Nombre</td>
 									<th scope="col">Apellido</th>
-                                    <td scope="col">Rol</td>
+                                    <td scope="col">Cédula/Ruc</td>
 									<td scope="col">Correo</td>
+									<td scope="col">Dirección</td>
+									<td scope="col">Descripción</td>
                                     <td scope="col">Acciones</td>
                          
 	
@@ -50,26 +49,24 @@ require_once("conn/conexion.php");
 			while($row = mysqli_fetch_array($query)){
 				?>
 				<tr>
-			    <td><?php echo $row['nombre'];?></td>
+			        <td><?php echo $row['nombre'];?></td>
                     <td><?php echo $row['apellido'];?></td>
-                    <td><?php echo $row['rol'];?></td>
+                    <td><?php echo $row['cedula'];?></td>
                     <td><?php echo $row['correo'];?></td>
-
-		
+					<td><?php echo $row['direccion'];?></td>
+					<td><?php echo $row['descripcion'];?></td>
 					<td>
 					<button type="button" class="btn btn-info" data-toggle="modal"
-                     data-target="#dataupdate" 
-                     data-id="<?php echo $row['id_usuario']?>" 
-                     data-rol="<?php echo $row['rol']?>"   
-                     data-aplicacion="<?php echo $row['id_cliente']?>"
-                     data-nombre="<?php echo $row['nombre']?>"
+                     data-target="#dataUpdate" 
+                     data-id="<?php echo $row['id_servicio']?>" 
+					 data-nombre="<?php echo $row['nombre']?>"
                      data-apellido="<?php echo $row['apellido']?>"
-                     data-correo="<?php echo $row['correo']?>"
-                     data-nick="<?php echo $row['nick']?>"
-                     data-pass="<?php echo $row['pass']?>"
-                     
+                     data-cedula="<?php echo $row['cedula']?>"   
+					 data-correo="<?php echo $row['correo']?>"
+					 data-direccion="<?php echo $row['direccion']?>"   
+					 data-descripcion="<?php echo $row['descripcion']?>"  
                      ><i class='nav-icon fa fa-pen'></i> </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#datadelete" data-id="<?php echo $row['id_usuario']?>"  ><i class='nav-icon fa fa-trash' ></i></button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dataDelete" data-id="<?php echo $row['id_servicio']?>"  ><i class='nav-icon fa fa-trash' ></i></button>
 </td>
 				</tr>
 				<?php

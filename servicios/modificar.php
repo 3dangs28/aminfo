@@ -11,40 +11,43 @@ require_once("../conn/conexion.php");
 		else if (empty($_POST['nombre'])){
 			$errors[] = "Nombre vacío";
 		} 
-		else if (empty($_POST['apellido'])){
+		else if (empty($_POST['apellido1'])){
 			$errors[] = "Apellido vacío";
 		} 
 		else if (empty($_POST['correo'])){
 			$errors[] = "Correo vacío";
 		} 
-		else if (empty($_POST['nick'])){
-			$errors[] = "Nick vacío";
+		else if (empty($_POST['cedula'])){
+			$errors[] = "Cédula/RUC vacío";
+		} 
+		else if (empty($_POST['direccion'])){
+			$errors[] = "Dirección vacío";
 		} 
 	
-		else if (empty($_POST['pass'])){
-			$errors[] = "Contraseña vacío";
+		else if (empty($_POST['descripcion'])){
+			$errors[] = "Descripción vacío";
 		} 
 		else if (
 			!empty($_POST['id']) && 
 			!empty($_POST['nombre']) &&
-			!empty($_POST['apellido']) &&
+			!empty($_POST['apellido1']) &&
 			!empty($_POST['correo']) &&  
-			!empty($_POST['nick']) &&  
-			!empty($_POST['pass'])   
+			!empty($_POST['cedula']) &&  
+			!empty($_POST['direccion']) &&  
+			!empty($_POST['descripcion'])   
 			
 		){
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$id=intval($_POST['id']);
+		$cedula=mysqli_real_escape_string($con,(strip_tags($_POST["cedula"],ENT_QUOTES)));
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-		$apellido=mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
+		$apel=mysqli_real_escape_string($con,(strip_tags($_POST["apellido1"],ENT_QUOTES)));
 		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
-		$nick=mysqli_real_escape_string($con,(strip_tags($_POST["nick"],ENT_QUOTES)));
-		$aux=mysqli_real_escape_string($con,(strip_tags($_POST["pass"],ENT_QUOTES)));
+		$direccion=mysqli_real_escape_string($con,(strip_tags($_POST["direccion"],ENT_QUOTES)));
+		$descripcion=mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
 
-		$pass=md5($aux);
-
-		$sql="UPDATE USUARIOS SET  NOMBRE='".$nombre."', APELLIDO='".$apellido."', CORREO='".$correo."', NICK='".$nick."', PASS='".$pass."'	WHERE ID_USUARIO='".$id."'";
+        $sql="update servicios set  nombre='".$nombre."', apellido='".$apel."', cedula='".$cedula."', correo='".$correo."', direccion='".$direccion."', descripcion='".$descripcion."' where id_servicio='".$id."'";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Los datos han sido actualizados satisfactoriamente.";

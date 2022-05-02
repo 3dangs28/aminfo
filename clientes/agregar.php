@@ -12,13 +12,13 @@
 		else if (
 			!empty($_POST['aplicacion'])  
 
-		){
+		){ 
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 
 		$aplicacion=mysqli_real_escape_string($con,(strip_tags($_POST["aplicacion"],ENT_QUOTES)));
 	
-		$sql="INSERT INTO APLICACIONES ( APLICACION, FECHA_CREACION) VALUES ('".$aplicacion."',sysdate())";
+		$sql="insert into clientes ( cliente, fecha_creacion) values ('".$aplicacion."',sysdate())";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Los datos han sido guardados satisfactoriamente.";

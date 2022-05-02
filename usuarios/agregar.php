@@ -45,12 +45,13 @@
 		$apel=mysqli_real_escape_string($con,(strip_tags($_POST["apellido"],ENT_QUOTES)));
 		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
 		$nick=mysqli_real_escape_string($con,(strip_tags($_POST["nick"],ENT_QUOTES)));
-		$pass=mysqli_real_escape_string($con,(strip_tags($_POST["pass"],ENT_QUOTES)));
+		$aux=mysqli_real_escape_string($con,(strip_tags($_POST["pass"],ENT_QUOTES)));
 		$estatus = 1;
+		$pass=md5($aux);
+		$sql="insert into usuarios  (id_rol ,id_cliente, nombre, apellido, correo, nick, pass )
+		values ('".$rol."','".$aplicacion."','".$nombre."','".$apel."','".$correo."','".$nick."','".$pass."'
+		)";
 
-		$sql="INSERT INTO USUARIOS  (ID_ROL ,ID_APLICACION, NOMBRE, APELLIDO, CORREO, NICK, PASS )
-		 VALUES ('".$rol."','".$aplicacion."','".$nombre."','".$apel."','".$correo."','".$nick."','".$pass."'
-		 )";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Los datos han sido guardados satisfactoriamente.";

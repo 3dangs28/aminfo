@@ -19,7 +19,7 @@ require_once("conn/conexion.php");
 		t1.nick, t1.pass, t2.rol from usuarios as t1, roles as t2
 		   where 
 	   t1.id_rol = t2.id_rol order by id_usuario';
-   
+    
 
         $query = mysqli_query($con,$sql);
 		
@@ -55,10 +55,10 @@ require_once("conn/conexion.php");
                     <td><?php echo $row['rol'];?></td>
                     <td><?php echo $row['correo'];?></td>
 
-		
+		 
 					<td>
 					<button type="button" class="btn btn-info" data-toggle="modal"
-                     data-target="#dataupdate" 
+                     data-target="#dataUpdate" 
                      data-id="<?php echo $row['id_usuario']?>" 
                      data-rol="<?php echo $row['rol']?>"   
                      data-aplicacion="<?php echo $row['id_cliente']?>"
@@ -69,7 +69,7 @@ require_once("conn/conexion.php");
                      data-pass="<?php echo $row['pass']?>"
                      
                      ><i class='nav-icon fa fa-pen'></i> </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#datadelete" data-id="<?php echo $row['id_usuario']?>"  ><i class='nav-icon fa fa-trash' ></i></button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dataDelete" data-id="<?php echo $row['id_usuario']?>"  ><i class='nav-icon fa fa-trash' ></i></button>
 </td>
 				</tr>
 				<?php

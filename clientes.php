@@ -24,7 +24,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h3 class="mb-0">Clientes</h3>
+                        <h3 class="mb-0">Empresas</h3>
                   	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#dataRegister"><i class='glyphicon glyphicon-plus'></i> Agregar</button>
                     </div>
                     <div class="table-responsive" id="loader"> </div> 

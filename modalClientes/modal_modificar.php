@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-                    <h5 class="modal-title">Modificar rol</h5>
+                    <h5 class="modal-title">Modificar Cliente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -11,14 +11,14 @@
       <div class="modal-body">
 			<div id="datos_ajax"></div>
 
-
+ 
           <div class="form-group">
-            <label for="codigo" class="control-label">Aplicación:</label>
-            <input type="text" class="form-control" id="aplicacion" name="aplicacion" placeholder="Nombre de la aplicacion" required >
+            <label for="codigo" class="control-label">Empresa:</label>
+            <input type="text" class="form-control" id="aplicacion" name="aplicacion" placeholder="Nombre de la empresa" required >
 			<input type="hidden" class="form-control" id="id" name="id">
           </div>
-
-
+ 
+ 
         
       </div>
       <div class="modal-footer">

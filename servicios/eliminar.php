@@ -1,27 +1,23 @@
 <?php
 
-
-require_once("../conn/conexion.php");
+	# conectare la base de datos
+	require_once("../conn/conexion.php");
 
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST['id'])) {
-           $errors[] = "ID vacío";
-        } else if (empty($_POST['aplicacion'])){
-			$errors[] = "Aplicación vacío";
-
-		} else if (
-			!empty($_POST['id']) &&
-			!empty($_POST['aplicacion']) 
+	 if (empty($_POST['id'])){
+			$errors[] = "ID vacío";
+		}   else if (
+			!empty($_POST['id']) 
 			
 		){
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
-		$aplicacion=mysqli_real_escape_string($con,(strip_tags($_POST["aplicacion"],ENT_QUOTES)));
 		$id=intval($_POST['id']);
-		$sql="update clientes set cliente='".$aplicacion."'  where id_cliente='".$id."'";
-		$query_update = mysqli_query($con,$sql);
-			if ($query_update){
-				$messages[] = "Los datos han sido actualizados satisfactoriamente.";
+		
+		$sql="DELETE FROM servicios WHERE id_servicio='".$id."'";
+		$query_delete = mysqli_query($con,$sql);
+			if ($query_delete){
+				$messages[] = "Los datos han sido eliminados satisfactoriamente.";
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}

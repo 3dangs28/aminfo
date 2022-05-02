@@ -2,37 +2,39 @@ function load(page){
     var parametros = {"action":"ajax","page":page};
     $("#loader").fadeIn('slow');
     $.ajax({
-        url:'usuarios_ajax.php',
+        url:'servicios_ajax.php',
         data: parametros,
          beforeSend: function(objeto){
         $("#loader").html("<img src='giphy.gif'>");
         },
         success:function(data){
-          console.log(data);
           $("#loader").html(data);
         }
     })
 } 
  
     $('#dataUpdate').on('show.bs.modal', function (event) {
+   
+     
       var button = $(event.relatedTarget) // Botón que activó el modal
       var id = button.data('id') // Extraer la información de atributos de datos
-      var rol = button.data('rol') // Extraer la información de atributos de datos
-      var aplicacion = button.data('aplicacion') // Extraer la información de atributos de datos
       var nombre = button.data('nombre') // Extraer la información de atributos de datos
       var apellido = button.data('apellido') // Extraer la información de atributos de datos
+      var cedula = button.data('cedula') // Extraer la información de atributos de datos
       var correo = button.data('correo') // Extraer la información de atributos de datos
-      var nick = button.data('nick') // Extraer la información de atributos de datos
-    
-      var modal = $(this)
-      modal.find('.modal-title').text('Modificar usuario: '+nombre+' en empresa: '+aplicacion)
-      modal.find('.modal-body #id').val(id)
-      modal.find('.modal-body #rol').val(rol)
-      modal.find('.modal-body #nombre').val(nombre)
-      modal.find('.modal-body #apellido').val(apellido)
-      modal.find('.modal-body #correo').val(correo)  
-      modal.find('.modal-body #nick').val(nick)
+      var direccion = button.data('direccion') // Extraer la información de atributos de datos
+      var descripcion = button.data('descripcion') // Extraer la información de atributos de datos
 
+
+      var modal = $(this)
+      modal.find('.modal-title').text('Modificar servicio: ')
+      modal.find('.modal-body #id').val(id)
+      modal.find('.modal-body #nombre').val(nombre)
+      modal.find('.modal-body #apellido1').val(apellido)
+      modal.find('.modal-body #cedula').val(cedula)
+      modal.find('.modal-body #correo').val(correo)  
+      modal.find('.modal-body #direccion').val(direccion)
+      modal.find('.modal-body #descripcion').val(descripcion)
       $('.alert').hide();//Oculto alert
     })
     
@@ -45,9 +47,10 @@ function load(page){
 
 $( "#actualidarDatos" ).submit(function( event ) {
     var parametros = $(this).serialize();
+    console.log("caca");
          $.ajax({
                 type: "POST",
-                url: "usuarios/modificar.php",
+                url: "servicios/modificar.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#datos_ajax").html("Mensaje: Cargando...");
@@ -65,7 +68,7 @@ $( "#actualidarDatos" ).submit(function( event ) {
     var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "usuarios/agregar.php",
+                url: "servicios/agregar.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $("#datos_ajax_register").html("Mensaje: Cargando...");
@@ -83,7 +86,7 @@ $( "#actualidarDatos" ).submit(function( event ) {
     var parametros = $(this).serialize();
          $.ajax({
                 type: "POST",
-                url: "usuarios/eliminar.php",
+                url: "servicios/eliminar.php",
                 data: parametros,
                  beforeSend: function(objeto){
                     $(".datos_ajax_delete").html("Mensaje: Cargando...");

@@ -12,7 +12,9 @@
 
 
 <?php include("inc/menu.php"); ?>
-
+<?php include("modalServicio/modal_agregar.php");?>
+<?php include("modalServicio/modal_modificar.php");?>
+<?php include("modalServicio/modal_eliminar.php");?>
         <!-- Content Start -->
 <div class="content">
 

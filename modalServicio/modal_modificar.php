@@ -1,7 +1,7 @@
 <form id="actualidarDatos">
 <div class="modal fade" id="dataUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content"> 
     <div class="modal-header">
                     <h5 class="modal-title">Modificar usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -15,8 +15,8 @@
  
 
           <div class="form-group">
-          <label for="lelo"  class="control-label">Rol:</label>
-              <input type="text" class="form-control" id="rol" name="rol" disable="disable" readonly >
+          <label for="lelo"  class="control-label">Cédula/RUC:</label>
+              <input type="text" class="form-control" id="cedula" name="cedula" disable="disable" readonly >
               <input type="hidden" class="form-control" id="id" name="id">
           </div>
 
@@ -30,7 +30,7 @@
 
           <div class="form-group">
           <label for="lalo"  class="control-label">Apellido</label>
-          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido:" required autocomplete="off" >
+          <input type="text" class="form-control" id="apellido1" name="apellido1" placeholder="Apellido:" required autocomplete="off" >
           </div>
 
 
@@ -41,16 +41,15 @@
     
 
         <div class="form-group">
-        <label for="lalo"  class="control-label">Nick:</label>
-           <input type="text" class="form-control" id="nick" name="nick" placeholder="Nick:" required autocomplete="off" >
+        <label for="lalo"  class="control-label">Dirección:</label>
+           <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección:" required autocomplete="off" >
+        </div>
+    
+        <div class="form-group">
+        <label for="lalo"  class="control-label">Descripción:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required autocomplete="off" ></textarea>
         </div>
   
-        <div class="form-group">
-        <label for="lalo"  class="control-label">Contraseña</label>
-           <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña" required autocomplete="off" >
-        </div>
-
-
 
       </div>
       <div class="modal-footer">

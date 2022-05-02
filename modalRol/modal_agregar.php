@@ -22,7 +22,7 @@
                               ?>
                      
                              <select class="form-control" id="aplicacion" name="aplicacion" required>
-                             <option value="">Seleccione Aplicación</option>
+                             <option value="">Seleccione Empresa</option>
                      
                              <?php  while($row = mysqli_fetch_array($query)){  ?>    
                             <?php     echo "<option value=".$row['id_cliente'].">".$row['cliente']."</option>";

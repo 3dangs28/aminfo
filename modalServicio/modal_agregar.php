@@ -5,7 +5,7 @@
       
 
     <div class="modal-header">
-                    <h5 class="modal-title">Formulario para agregar usuarios</h5>
+                    <h5 class="modal-title">Formulario para agregar servicio</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,27 +39,7 @@
                             
 
 
-             <div class="form-group">
-                							
-         <?php 
-             $query1 = mysqli_query($con,"select id_rol,rol from roles");
-         ?>
-
-        <select class="form-control" id="rol" name="rol" required>
-        <option value="">Seleccione Rol</option>
-
-        <?php  while($row1 = mysqli_fetch_array($query1)){  ?>    
-       <?php     echo "<option value=".$row1['id_rol'].">".$row1['rol']."</option>";
-        }
-        mysqli_close($con);
-        ?>
-
-
-   </select>
- 
-
-</div>
-
+     
       
 		     <div class="form-group">
            
@@ -72,6 +52,11 @@
          </div>
 
    
+         <div class="form-group">
+         
+            <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cédula/RUC:" required autocomplete="off" >
+         </div>
+
 
          <div class="form-group">
          
@@ -80,14 +65,13 @@
 
          <div class="form-group">
          
-            <input type="text" class="form-control" id="nick" name="nick" placeholder="Nick:" required autocomplete="off" >
+            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección:" required autocomplete="off" >
          </div>
    
          <div class="form-group">
-           
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña" required autocomplete="off" >
-         </div>
-
+    <label for="exampleFormControlTextarea1">Descripción:</label>
+    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+  </div>
 
       </div>
       <div class="modal-footer">
