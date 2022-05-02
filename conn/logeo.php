@@ -42,10 +42,8 @@ if(verificar_login($_POST['usuario'],$_POST['clave'],$db_name,$conexion,$resUsr,
     
             //echo '<br> Usuario y passwords validos';
             $_SESSION['iduser']=$resUsr; 
-            $_SESSION['iduni']=$resUni; 
             $_SESSION['usuario']=$nombre; 
-            $_SESSION['cod_pais']=$cod_pais; 
-            $_SESSION['cod_uni']=$cod_uni; 
+
 
             switch ($idperfil) {
                 case "1":

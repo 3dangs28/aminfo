@@ -1,7 +1,6 @@
 <?php include("inc/librerias.php"); ?>
 
 
-
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -18,7 +17,7 @@
     <div class="content">
 
           
-<?php include("inc/header.php"); ?>
+<?php include_once("inc/header.php"); ?>
 <?php include("inc/widgets.php"); ?>
 <?php include("inc/footer.php"); ?>
 

@@ -1,6 +1,6 @@
 <?php
 	# conectare la base de datos
-
+	session_start();
 	require_once("../conn/conexion.php");
 
 	/*Inicia validacion del lado del servidor*/
@@ -36,7 +36,7 @@
 			!empty($_POST['descripcion'])
 			
 		){
-
+ 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		
 		$cedula=mysqli_real_escape_string($con,(strip_tags($_POST["cedula"],ENT_QUOTES)));
@@ -46,7 +46,7 @@
 		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
 		$direccion=mysqli_real_escape_string($con,(strip_tags($_POST["direccion"],ENT_QUOTES)));
 		$descripcion=mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
-		$usuario = 3;
+		$usuario = $_SESSION['id_usuario'];
 
 		$sql="insert into servicios (id_usuario, cedula ,id_cliente, nombre, apellido, correo, direccion, descripcion )
 		values ('".$usuario."','".$cedula."','".$aplicacion."','".$nombre."','".$apel."','".$correo."','".$direccion."','".$descripcion."'
